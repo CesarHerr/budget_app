@@ -1,1 +1,12 @@
-<h1>hola groups index</h1>
+<section class="groups">
+  <ul>
+    <% @groups.each do |group|%>
+      <li>   
+        <h2><%= group.name %></h2>
+        <p><%= group.icon %></p>
+        <p><%= link_to 'View Group', group_path(group) %></p>
+      </li>
+      <% end %>
+  </ul>
+  <button>New Category</button>
+</section>

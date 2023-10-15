@@ -1,0 +1,12 @@
+<section class="paidUps">
+  <ul>
+    <% @paid_ups.each do |paid|%>
+      <li>   
+        <h2><%= paid.name %></h2>
+        <p><%= paid.amount %></p>
+        <p><%= link_to 'View details', group_paid_up_path(@group, paid) %></p>
+      </li>
+      <% end %>
+  </ul>
+  <button>New Category</button>
+</section>
