@@ -1,0 +1,22 @@
+<div>
+  <% if flash[:alert].present? %>
+    <%= flash[:alert] %>
+  <% end %>
+  </div>
+  <div>
+  <%= form_with model: [@group] do |form| %>
+    <div>
+      <%= form.label :name %> 
+      <%= form.text_field :name %>
+    </div>
+    <div>
+      <%= form.label :icon %> 
+      <%= form.text_field :icon %>
+    </div>
+
+    <%= form.hidden_field :user_id, value: current_user.id %>
+    <div>
+      <%= form.submit 'Create Categorie' %>
+    </div>
+  <% end %>
+</div>
