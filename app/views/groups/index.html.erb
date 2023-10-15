@@ -1,12 +1,14 @@
 <section class="groups">
   <ul>
     <% @groups.each do |group|%>
-      <li>   
-        <h2><%= group.name %></h2>
+      <li>
+        <%= link_to group_path(group) do %>
+          <h2><%= group.name %></h2>
+        <% end %>
         <p><%= group.icon %></p>
-        <p><%= link_to 'View Group', group_path(group) %></p>
+        <p>Total Amount: XXXX</p>        
       </li>
-      <% end %>
+    <% end %>
   </ul>
   <button>New Category</button>
 </section>

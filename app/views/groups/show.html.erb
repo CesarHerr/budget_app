@@ -1,5 +1,8 @@
 <section class="paidUps">
-  <ul>
+<button> Back < to home </button>
+  <h1><%= @group.name %> transactions </h1>
+  <p>Total</p>
+    <h2></h2>
     <% @paid_ups.each do |paid|%>
       <li>   
         <h2><%= paid.name %></h2>
@@ -8,5 +11,5 @@
       </li>
       <% end %>
   </ul>
-  <button>New Category</button>
+  <button>New Transaction</button>
 </section>

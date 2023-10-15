@@ -6,7 +6,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    @paid_ups = PaidUp.includes(:author, :groups).where(group_id: @group.id)
+    @paid_ups = PaidUp.includes(:author, :groups).where(group_id: @group.id).order(created_at: :desc)
   end
 
   def params_group
