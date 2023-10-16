@@ -1,13 +1,22 @@
 <section class="groups">
+  <h1>Categories</h1>
   <ul>
-    <% @groups.each do |group|%>
+    <% @groups.each do |group| %>
       <li>
         <%= link_to group_path(group) do %>
           <h2><%= group.name %></h2>
         <% end %>
         <%= image_tag image_path("icons/#{group.icon}") %>
-
-        <p>Total Amount: XXXX</p>        
+        
+        <p>Total Amount:
+          <% total = 0 %>
+          <% @paid_ups.each do |paid| %>
+            <% if paid.group_id == group.id %>
+              <% total += paid.amount %>
+            <% end %>
+          <% end %>
+          <%= total %>
+        </p>
       </li>
     <% end %>
   </ul>
