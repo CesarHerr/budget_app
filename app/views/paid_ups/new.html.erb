@@ -1,0 +1,23 @@
+<section>
+  </div>
+  <div>
+  <%= link_to 'Back ◀️ ', group_path(@group)%>
+  <%= form_with model: @paid_up, url: group_paid_ups_path(@group), method: :post do |form| %>
+  
+    <div>
+      <%= form.label :name %> 
+      <%= form.text_field :name %>
+    </div>
+    <div>
+      <%= form.label :amount %> 
+      <%= form.text_field :amount %>
+    </div>
+
+    <%= form.hidden_field :author_id, value: current_user.id %>
+    <%= form.hidden_field :group_id, value: @group.id %>
+
+    <div>
+      <%= form.submit 'Create Transaction' %>
+    </div>
+  <% end %>
+</section>
