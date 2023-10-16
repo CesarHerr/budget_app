@@ -1,8 +1,9 @@
 <section class="paidUps">
   <%= link_to 'Back ◀️ ', groups_path(current_user)%>
-  <h1><%= @group.name %> transactions </h1>
-  <p>Total</p>
-    <h2></h2>
+  <h1> transactions </h1>
+  <h3><%= @group.name %><h3>
+  <p><%= @sum_total %></p>
+
     <% @paid_ups.each do |paid|%>
       <li>   
         <h4><%= paid.name %></h4>
