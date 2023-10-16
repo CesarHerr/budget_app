@@ -13,20 +13,29 @@ class PaidUpsController < ApplicationController
   end
 
   def create
-    @paid_up = current_user.paid_ups.new(params_paid_up)
-    @group = Group.find(params[:group_id])
-    if @paid_up.save
-      flash[:notice] = 'Transaction successfully created'
-      redirect_to group_path(@paid_up.group_id)
-    else
+    group_ids = params[:paid_up][:group_ids]
+
+    if group_ids.nil?
       flash[:alert] = 'Something went wrong'
-      redirect_to new_group_paid_up_path(@group)
+      redirect_to new_group_paid_up_path
+    else
+      group_ids.each do |group_id|
+        paid_up = current_user.paid_ups.new(
+          name: params[:paid_up][:name],
+          amount: params[:paid_up][:amount],
+          group_id:
+        )
+        paid_up.save
+      end
+
+      flash[:notice] = 'Transaction successfully created'
+      redirect_to group_path(group_ids.first)
     end
   end
 
   private
 
   def params_paid_up
-    params.require(:paid_up).permit(:author_id, :group_id, :amount, :name)
+    params.require(:paid_up).permit(:author_id, :amount, :name, group_ids: [])
   end
 end

@@ -6,19 +6,24 @@
   
     <div>
       <%= form.label :name %>
-      <%= form.text_field :name %>
+      <%= form.text_field :name, required: true %>
     </div>
     <div>
       <%= form.label :amount %> 
-      <%= form.text_field :amount %>
+      <%= form.text_field :amount, requiered: true %>
     </div>
 
     <%= form.hidden_field :author_id, value: current_user.id %>
     
-    <div>
-      <%= form.label 'Select a category' %>
-    <%= form.select :group_id, options_from_collection_for_select(@groups, 'id', 'name'), {} %>
-    </div>
+    <h2>Categories</h2>
+  <ul>
+    <% @groups.each do |group| %>
+      <li>
+        <%= form.check_box :group_ids, { multiple: true }, group.id, nil %>
+        <%= group.name %>
+      </li>
+    <% end %>
+  </ul>
 
     <div>
       <%= form.submit 'Create Transaction' %>
