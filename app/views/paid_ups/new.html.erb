@@ -5,7 +5,7 @@
   <%= form_with model: @paid_up, url: group_paid_ups_path(@group), method: :post do |form| %>
   
     <div>
-      <%= form.label :name %> 
+      <%= form.label :name %>
       <%= form.text_field :name %>
     </div>
     <div>
@@ -14,7 +14,11 @@
     </div>
 
     <%= form.hidden_field :author_id, value: current_user.id %>
-    <%= form.hidden_field :group_id, value: @group.id %>
+    
+    <div>
+      <%= form.label 'Select a category' %>
+    <%= form.select :group_id, options_from_collection_for_select(@groups, 'id', 'name'), {} %>
+    </div>
 
     <div>
       <%= form.submit 'Create Transaction' %>

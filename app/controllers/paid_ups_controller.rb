@@ -9,6 +9,7 @@ class PaidUpsController < ApplicationController
   def new
     @paid_up = PaidUp.new
     @group = Group.find(params[:group_id])
+    @groups = Group.includes(:user).where(user: { id: current_user.id })
   end
 
   def create
@@ -16,7 +17,7 @@ class PaidUpsController < ApplicationController
     @group = Group.find(params[:group_id])
     if @paid_up.save
       flash[:notice] = 'Transaction successfully created'
-      redirect_to group_path(@group)
+      redirect_to group_path(@paid_up.group_id)
     else
       flash[:alert] = 'Something went wrong'
       redirect_to new_group_paid_up_path(@group)
