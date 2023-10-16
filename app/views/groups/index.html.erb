@@ -5,7 +5,8 @@
         <%= link_to group_path(group) do %>
           <h2><%= group.name %></h2>
         <% end %>
-        <p><%= group.icon %></p>
+        <%= image_tag image_path("icons/#{group.icon}") %>
+
         <p>Total Amount: XXXX</p>        
       </li>
     <% end %>

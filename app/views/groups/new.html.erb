@@ -7,15 +7,20 @@
         <%= form.text_field :name %>
       </div>
       <div>
-        <%= form.label :icon %> 
-        <%= form.text_field :icon %>
-      </div>
+        <%= form.hidden_field :icon, id: false %>
 
-      <%= form.hidden_field :user_id, value: current_user.id %>
+          <div id="icon_list">
+            <% @icons.each do |icon| %>
 
-      <div>
-        <%= form.submit 'Create Categorie' %>
+              <label>
+                <%= image_tag("icons/#{icon}", alt: icon, class: 'iconList') %>
+                <%= radio_button :group, :icon, icon, id: "icon_#{icon}" %>
+              </label>
+            <% end %>
+
+          </div>
+            <%= form.submit 'Create Categorie' %>
       </div>
-    <% end %>
+      <% end %>
   </div>
 </section>  

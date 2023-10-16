@@ -6,6 +6,7 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
+    @icons = Dir.glob('app/assets/images/icons/*.png').map { |path| File.basename(path) }
   end
 
   def create
