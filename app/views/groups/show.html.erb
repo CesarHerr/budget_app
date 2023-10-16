@@ -1,15 +1,15 @@
 <section class="paidUps">
-<button> Back < to home </button>
+  <%= link_to 'Back ◀️ ', groups_path(current_user)%>
   <h1><%= @group.name %> transactions </h1>
   <p>Total</p>
     <h2></h2>
     <% @paid_ups.each do |paid|%>
       <li>   
-        <h2><%= paid.name %></h2>
+        <h4><%= paid.name %></h4>
         <p><%= paid.amount %></p>
         <p><%= link_to 'View details', group_paid_up_path(@group, paid) %></p>
       </li>
       <% end %>
-  </ul>
-  <button>New Transaction</button>
+  </ul>  
+  <%= link_to 'New transaction', new_group_paid_up_path(@group, current_user)%>
 </section>
