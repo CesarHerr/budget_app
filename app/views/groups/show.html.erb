@@ -1,16 +1,34 @@
-<section class="paidUps">
-  <%= link_to 'Back ◀️ ', groups_path(current_user)%>
-  <h1> transactions </h1>
-  <h3><%= @group.name %><h3>
-  <p><%= @sum_total %></p>
+<section class=" items-center w-full bg-gray-100 min-h-screen">
 
-    <% @paid_ups.each do |paid|%>
-      <li>   
-        <h4><%= paid.name %></h4>
-        <p><%= paid.amount %></p>
-        <p><%= link_to 'View details', group_paid_up_path(@group, paid) %></p>
+<h1 class="py-8 bg-cBlue-100 min-w-full text-white text-center text-3xl fixed top-0"> Transactions </h1>
+  
+
+<%= link_to '◀️ ', groups_path(current_user), 
+    class: "fixed text-white top-12 left-2 text-xl z-10"%>
+  
+  
+  <div class="flex flex-row justify-between w-full px-4 pt-28 pb-6 bg-white  ">
+    <p class="text-xl"><%= @group.name %><p>
+    <p class="font-bold text-xl">$<%= @sum_total %></p>
+  </div> 
+
+
+  
+  <ul class="pb-24">
+    <% @paid_ups.each do |paid|%>  
+      <li class="flex flex-row justify-between w-11/12 items-center bg-white mx-auto px-4 my-6 py-10 max-h-70 rounded">
+        <%= link_to group_paid_up_path(@group, paid) do %>
+          <p class="italic"><%= paid.name.capitalize %></p>  
+        <% end %>
+        <p class="italic font-bold">$<%= paid.amount %></p>  
       </li>
       <% end %>
-  </ul>  
-  <%= link_to 'New transaction', new_group_paid_up_path(@group, current_user)%>
+    </ul>
+
+  <div class="w-full bg-cGreen-100 fixed bottom-0 h-24">
+    <%= link_to 'New transaction', new_group_paid_up_path(@group, current_user), 
+    class: "fixed w-10/12 bottom-4 border-2 border-gray-200 bg-cGreen-100 
+    text-center py-4 mx-auto rounded text-white left-1/2 transform -translate-x-1/2"%>
+  </div>
+
 </section>
