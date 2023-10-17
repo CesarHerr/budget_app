@@ -1,27 +1,38 @@
-<section>
-  <h1> New Category </h1>
-  <%= link_to 'Back ◀️ ', groups_path(current_user)%>
-  <div>  
-    <%= form_with model: [@group] do |form| %>
-      <div>
-        <%= form.label :name %> 
-        <%= form.text_field :name %>
+<section class="flex-col items-center w-full bg-gray-100 min-h-screen">
+  <%= link_to '◀️ ', groups_path(current_user),
+  class: "text-white top-12 left-2 text-xl z-10 fixed" %>
+  
+  <h1 class="py-6 bg-cBlue-100 min-w-full text-white text-center text-2xl fixed top-0">
+    New Category
+  </h1>
+  
+    <%= form_with model: [@group], html: { class: 'py-20' } do |form| %>
+      <div class="field pt-4">
+        <%= form.text_field :name, required: true,
+        placeholder: 'Name', 'aria-label': 'Name',
+        class: 'w-full border-gray-200 pt-4', maxlength: 15%>
       </div>
+      <p class="italic py-2 text-xs font-gray-200">(Max. 15 characteres)</p>
+
       <div>
         <%= form.hidden_field :icon, id: false %>
 
-          <div id="icon_list">
+          <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-4">
             <% @icons.each do |icon| %>
 
-              <label>
+              <label class="p-4">
                 <%= image_tag("icons/#{icon}", alt: icon, class: 'iconList') %>
                 <%= radio_button :group, :icon, icon, id: "icon_#{icon}" %>
               </label>
             <% end %>
 
           </div>
-            <%= form.submit 'Create Categorie' %>
+          <div class="w-full bg-cGreen-100 fixed bottom-0 h-24">
+            <%= form.submit 'Create Category',
+            class: "fixed w-10/12 bottom-4 border-2 border-gray-200 bg-cGreen-100 
+            text-center py-4 mx-8 rounded text-white" %>
+          </div>
       </div>
       <% end %>
-  </div>
+  
 </section>  
