@@ -1,26 +1,30 @@
-<h2>Log in</h2>
+<section class="flex-col items-center w-full bg-gray-50 min-h-screen relative">
+  <h2 class="py-6 bg-cBlue-100 min-w-full text-white text-center text-xl">LOGIN</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name),
+  html: { class: 'relative' }) do |f| %>
+    <div class="field pt-4">    
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",
+                         placeholder: "Email", "aria-label": "email", 
+                         class: "w-full border-gray-200" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+    <div class="field pt-0">
+      <%= f.password_field :password, autocomplete: "current-password",
+                            placeholder: "Password", "aria-label": "password",
+                            class: "w-full border-gray-200" %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    </div>
+    
+    <div class="actions text-white absolute -top-7 right-2">
+      <%= f.submit "Log in" %>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  
+  <div class="text-center py-4 text-gray-400">
+    <%= link_to "Forgot your password?", new_password_path(resource_name) %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <div class="flex flex-col absolute bottom-4 min-w-full text-center text-1xl">
+    <%= link_to "Sign up", new_registration_path(resource_name) %>
+  </div>
+</section>
