@@ -25,7 +25,8 @@ RSpec.describe PaidUp, type: :model do
       expect(paid_up).to_not be_valid
     end
     it 'Should not be valid with a name larger than 20 characters' do
-      paid_up = PaidUp.create(name: 'this test larger than 20', amount: 10, author: @paid_up.author, group_id: @group.id)
+      paid_up = PaidUp.create(name: 'this test larger than 20', amount: 10, author: @paid_up.author,
+                              group_id: @group.id)
       expect(paid_up).to_not be_valid
     end
   end
