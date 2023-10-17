@@ -4,6 +4,6 @@ class PaidUp < ApplicationRecord
                                    foreign_key: 'paid_up_id',
                                    association_foreign_key: 'group_id'
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 20 }
   validates :amount, presence: true, numericality: { greater_or_equal_to: 0 }
 end
