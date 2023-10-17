@@ -4,10 +4,10 @@
   <h1 class="py-6 bg-cBlue-100 min-w-full text-white text-center text-2xl font-bold">
     Transaction details
   </h1>
-  <div class="flex flex-row justify-around w-11/12 items-center bg-white mx-auto my-4">
-    <p class="italic"><%= @paid_up.name %></p>
-    <p class="italic font-bold">$<%= @paid_up.amount %></p>  
+  <div class="flex flex-row justify-around w-11/12 items-center bg-white mx-auto my-4 border">
+    <p class="italic py-4"><%= @paid_up.name %></p>
+    <p class="italic font-bold py-4">$<%= @paid_up.amount %></p>  
   </div>
-  <p class="italic flex flex-row justify-around w-11/12 items-center bg-white mx-auto my-4">
+  <p class="italic flex flex-row justify-around w-11/12 items-center bg-white mx-auto my-4 border">
     <%= @paid_up.created_at %></p>
 </section>

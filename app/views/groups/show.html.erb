@@ -4,7 +4,7 @@
   
 
 <%= link_to '◀️ ', groups_path(current_user), 
-    class: "fixed text-white top-12 left-2 text-xl z-10"%>
+    class: "fixed text-white top-12 left-2 text-xl z-10 hover:scale-110 transition-all"%>
   
   
   <div class="flex flex-row justify-between w-full px-4 pt-28 pb-6 bg-white  ">
@@ -15,20 +15,22 @@
 
   
   <ul class="pb-24">
-    <% @paid_ups.each do |paid|%>  
-      <li class="flex flex-row justify-between w-11/12 items-center bg-white mx-auto px-4 my-6 py-10 max-h-70 rounded">
-        <%= link_to group_paid_up_path(@group, paid) do %>
-          <p class="italic"><%= paid.name.capitalize %></p>  
-        <% end %>
-        <p class="italic font-bold">$<%= paid.amount %></p>  
-      </li>
+    <% @paid_ups.each do |paid|%>
+      <%= link_to group_paid_up_path(@group, paid) do %>
+        <li class="flex flex-row justify-between w-11/12 items-center bg-white mx-auto px-4 my-6 
+                py-10 max-h-70 rounded hover:scale-105 transition-all border-2 hover:border-separate">
+        
+            <p class="italic"><%= paid.name.capitalize %></p>    
+          <p class="italic font-bold">$<%= paid.amount %></p>  
+        </li>
       <% end %>
-    </ul>
+    <% end %>
+  </ul>
 
   <div class="w-full bg-cGreen-100 fixed bottom-0 h-24">
     <%= link_to 'New transaction', new_group_paid_up_path(@group, current_user), 
     class: "fixed w-10/12 bottom-4 border-2 border-gray-200 bg-cGreen-100 
-    text-center py-4 mx-auto rounded text-white left-1/2 transform -translate-x-1/2"%>
+    text-center py-4 mx-auto rounded text-white left-1/2 transform -translate-x-1/2 hover:scale-105 transition-all"%>
   </div>
 
 </section>

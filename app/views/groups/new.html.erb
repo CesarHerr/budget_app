@@ -20,7 +20,7 @@
           <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-4">
             <% @icons.each do |icon| %>
 
-              <label class="p-4">
+              <label class="p-4 hover:scale-y-110 transition-all">
                 <%= image_tag("icons/#{icon}", alt: icon, class: 'iconList') %>
                 <%= radio_button :group, :icon, icon, id: "icon_#{icon}" %>
               </label>
