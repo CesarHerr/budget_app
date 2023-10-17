@@ -28,7 +28,7 @@ class PaidUpsController < ApplicationController
         paid_up.save
       end
 
-      flash[:notice] = 'Transaction successfully created'
+      flash[:notice] = 'Transaction Created!'
       redirect_to group_path(group_ids.first)
     end
   end

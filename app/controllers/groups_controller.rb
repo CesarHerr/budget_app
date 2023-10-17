@@ -21,10 +21,10 @@ class GroupsController < ApplicationController
   def create
     @group = current_user.groups.new(params_group)
     if @group.save
-      flash[:notice] = 'The Categorie was successfully created.'
+      flash[:notice] = 'Successfully created.'
       redirect_to groups_path
     else
-      flash[:alert] = 'The Categorie was not created.'
+      flash[:alert] = 'Was not created.'
       redirect_to new_group_path
     end
   end
