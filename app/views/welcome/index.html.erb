@@ -1,0 +1,11 @@
+<% unless user_signed_in? %>
+<section class="min-h-screen flex flex-col items-center justify-center relative">
+  <div class="text-center">
+    <h1 class="text-4xl text-gray-600 font-serif">Paid up</h1>
+  </div>
+  <div class="mt-4 flex flex-col absolute bottom-0 min-w-full text-center text-1xl">
+    <%= link_to 'LOG IN', new_user_session_path, class: 'bg-cBlue-100 text-white py-4 mx-4 rounded' %>
+    <%= link_to 'SIGN UP', new_user_registration_path, class: 'mt-2 text-gray-400 py-4 rounded' %>
+  </div>
+</section>
+<% end %>
