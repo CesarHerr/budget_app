@@ -1,7 +1,11 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <h3><b>Paid Ups</b></h3>
+
+  <h1><b>Paid Ups</b></h1>
+
+  ![paid_ups](https://github.com/CesarHerr/budget_app/assets/111262493/7d131533-ce87-4834-83eb-94932e5b6ea0)
+
 </div>
 
 
@@ -162,7 +166,7 @@ bundle exec rspec
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> You can see the live demo of this project: [click here](www.)
+> You can see the live demo of this project: [click here](https://paidups.onrender.com/)
 
 > You can see the Video presentation: [click here](https://www.loom.com/share/77d634395995413983b2e9fb229a2454?sid=50ebbe57-4026-4927-94e3-2c9c5dd330ca)
 
