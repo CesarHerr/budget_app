@@ -52,6 +52,19 @@ This application is designed to help you manage your finances and expenses, assi
 </details>
 
 <details>
+
+  <summary>PostgreSQL</summary>
+  <ul>
+    <li><a [href="https://rspec.info/](https://www.postgresql.org/">Rspec</a></li>
+  </ul>
+</details>
+
+<summary>Devise</summary>
+  <ul>
+    <li><a [href="https://github.com/heartcombo/devise">Rspec</a></li>
+  </ul>
+</details>
+
 <summary>Rspec</summary>
   <ul>
     <li><a href="https://rspec.info/">Rspec</a></li>
@@ -215,7 +228,7 @@ If you like this project give it a star ⭐️
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-**I would like to [Gregoire Vella](https://www.behance.net/gregoirevella) for the design idea, and thanks to Microverse for giving us the opportunity to learn and grow as developers. 🌟**
+**I would like to thanks [Gregoire Vella](https://www.behance.net/gregoirevella) for the design idea, and thanks to Microverse for giving us the opportunity to learn and grow as developers. 🌟**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
