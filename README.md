@@ -19,6 +19,7 @@
   - [Usage](#usage)
   - [Run tests](#run-tests)
   - [Deployment](#triangular_flag_on_post-deployment)
+ - [🚀 Live Demo ](#-live-demo-)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -159,6 +160,13 @@ bundle exec rspec
 - All tests should pass without any errors or failures, ensuring that the code and its methods are functioning correctly.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+> You can see the live demo of this project: [click here](www.)
+
+> You can see the Video presentation: [click here](https://www.loom.com/share/77d634395995413983b2e9fb229a2454?sid=50ebbe57-4026-4927-94e3-2c9c5dd330ca)
 
 
 ## 👥 Author <a name="author"></a>
