@@ -29,9 +29,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Recipe App <a name="Paids Up"></a>
+# 📖 Paid Ups <a name="Paids Ups"></a>
 
-**Recipe App** 
+**Paid Ups** 
 
 This application is designed to help you manage your finances and expenses, assisting in maintaining clear financial organization for personal, family, or work-related finances.
 
@@ -129,14 +129,12 @@ rails s
 1. You can install tailwind to use it in the project.
 
 ```
-npm install -D tailwindcss
-
-npx tailwindcss init
+rails tailwindcss:install
 ```
 2. You can run de server using this:
 
 ```
- ./bin/dev   
+bin/dev   
 ```
 
 
