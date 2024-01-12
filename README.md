@@ -179,7 +179,7 @@ bundle exec rspec
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> You can see the live demo of this project: [click here](https://paid-up.up.railway.app/)
+> You can see the live demo of this project: [click here](https://paidups.onrender.com/)
 
 > You can see the Video presentation: [click here](https://www.loom.com/share/77d634395995413983b2e9fb229a2454?sid=50ebbe57-4026-4927-94e3-2c9c5dd330ca)
 
