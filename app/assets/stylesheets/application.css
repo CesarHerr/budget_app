@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+.loader {
+  animation: coin-flip 4s cubic-bezier(0, 0.2, 0.8, 1);
+}
+
+@keyframes coin-flip {
+  50% {
+    transform: rotateY(1800deg);
+    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+}
