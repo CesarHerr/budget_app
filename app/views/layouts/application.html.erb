@@ -13,7 +13,7 @@
 
   <body>
     <header class="flex-row justify-between w-full text-white fixed z-20">
-      <% if user_signed_in? %>    
+      <% if user_signed_in? %>
         <div class="absolute top-0 left-2 text-xs">
           <i><%= current_user.name.capitalize %></i>
         </div>
@@ -22,10 +22,10 @@
         </div>
       <% end %>
     </header>  
-    <main>
-    <p class="notice italic font-bold text-xs text-cGreen-100 fixed z-10 left-1/2 transform -translate-x-1/2 top-20 "><%= notice %></p>
-    <p class="alert italic font-bold text-xs text-red-500 fixed z-10 left-1/2 transform -translate-x-1/2 top-20 w-full"><%= alert %></p> 
-    <%= yield %>
+    <main class="relative">
+      <p class="italic font-bold text-xs text-cGreen-100 fixed z-10 left-1/2 transform -translate-x-1/2 top-20 py-4 md:text-lg"><%= notice %></p>
+      <p class="italic font-bold text-xs text-red-500 absolute z-10 left-1/2 transform -translate-x-1/2 top-20 py-4 md:text-lg"><%= alert %></p> 
+      <%= yield %>
     </main>
   </body>
 </html>

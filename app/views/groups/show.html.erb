@@ -1,18 +1,15 @@
 <section class=" items-center w-full bg-gray-100 min-h-screen">
 
-<h1 class="py-8 bg-cBlue-100 min-w-full text-white text-center text-3xl fixed top-0"> Transactions </h1>
+<h1 class="py-8 bg-cBlue-100 min-w-full text-white text-center text-3xl fixed top-0 z-10"> Transactions </h1>
   
 
 <%= link_to '◀️ ', groups_path(current_user), 
-    class: "fixed text-white top-12 left-2 text-xl z-10 hover:scale-110 transition-all"%>
-  
+    class: "fixed text-white top-12 left-2 text-xl z-10 hover:scale-110 transition-all"%>  
   
   <div class="flex flex-row justify-between w-full px-4 pt-28 pb-6 bg-white  ">
     <p class="text-xl"><%= @group.name %><p>
     <p class="font-bold text-xl">$<%= @sum_total %></p>
   </div> 
-
-
   
   <ul class="pb-24">
     <% @paid_ups.each do |paid|%>
