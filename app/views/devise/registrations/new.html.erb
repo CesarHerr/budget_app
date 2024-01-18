@@ -1,10 +1,10 @@
 <% unless user_signed_in? %>
   <section class="flex-col items-center w-full bg-gray-50 min-h-screen md:min-h-96 relative md:w-[50%] mx-auto
-                  md:translate-y-1/2 md:rounded-xl md:border md:border-gray-400 md:shadow-2xl">
-    <h2 class="py-6 bg-cBlue-100 min-w-full text-white text-center text-xl rounded-lg">Sign up</h2>
+                  md:translate-y-1/2 md:rounded-xl md:border md:border-gray-400 md:shadow-2xl" data-controller="loader">
+    <h2 class="py-6 bg-cBlue-100 min-w-full text-white text-center text-xl rounded-lg" >Sign up</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name),
-      html: {class: 'relative'}) do |f| %>
+      html: {class: 'relative hidden', data: { loader_target: "form" }}) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field pt-4">   
@@ -31,9 +31,14 @@
       </div>
 
       <div class="actions absolute -top-7 right-2 text-white">
-        <%= f.submit "Sign up", class: "hover:scale-110 cursor-pointer transition-all" %>
+        <%= f.submit "Sign up", class: "hover:scale-110 cursor-pointer transition-all", data: { action: "click->loader#handleSubmit"} %>
       </div>
     <% end %>
+
+    <div data-loader-target="loader">
+      <%= render partial: "shared/loader_spinner", locals: { css_class: "text-5xl w-22 h-22"} %>
+    </div>
+
     <div class="absolute bottom-4 min-w-full text-center text-1xl hover:scale-110 transition-all">
       <%= render "devise/shared/links" %>
     </div>
