@@ -1,38 +1,41 @@
-<section class="flex-col items-center w-full bg-gray-100 min-h-screen">
-  <%= link_to '◀️ ', groups_path(current_user),
+<section class="flex-col items-center w-full bg-gray-100 min-h-screen" data-controller="loader">
+  <%= link_to "◀️ ", groups_path(current_user),
   class: "text-white top-12 left-2 text-xl z-10 fixed" %>
   
-  <h1 class="py-6 bg-cBlue-100 min-w-full text-white text-center text-2xl fixed top-0">
+  <h1 class="py-6 bg-cBlue-100 min-w-full text-white text-center text-2xl fixed top-0 z-10">
     New Category
   </h1>
   
-    <%= form_with model: [@group], html: { class: 'py-20' } do |form| %>
-      <div class="field pt-4">
+    <%= form_with model: [@group], html: { class: "py-20 hidden", data: { loader_target: "form" } } do |form| %>
+      <div class="field pt-4 md:mx-auto md:w-10/12">
         <%= form.text_field :name, required: true,
-        placeholder: 'Name', 'aria-label': 'Name',
-        class: 'w-full border-gray-200 pt-4', maxlength: 15%>
-      </div>
-      <p class="italic py-2 text-xs font-gray-200">(Max. 15 characteres)</p>
+        placeholder: "Name", "aria-label": "Name",
+        class: "w-full border-gray-200 pt-4", maxlength:15 %>
+        <p class="italic py-2 text-xs font-gray-200">(Max. 15 characters)</p>
+      </div>      
 
       <div>
         <%= form.hidden_field :icon, id: false %>
 
-          <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-4">
-            <% @icons.each do |icon| %>
+          <ul class="flex flex-wrap py-5 px-5 md:py-10 md:px-32 gap-2 md:gap-3">
 
-              <label class="p-4 hover:scale-y-110 transition-all">
-                <%= image_tag("icons/#{icon}", alt: icon, class: 'iconList') %>
-                <%= radio_button :group, :icon, icon, id: "icon_#{icon}" %>
-              </label>
+            <% @icons.each do |icon| %>
+              <li class="p-4 hover:scale-110 transition-all w-20 md:w-40 " data-controller="category">
+                <label>
+                  <%= image_tag("icons/#{icon}", alt: icon, class: "iconList", id: "#{icon}", data: { action: "click->category#select", category_target: "icon" }) %>
+                </label>
+                  <%= radio_button :group, :icon, icon, id: "icon_#{icon}", data: { category_target: "icon" } %>
+              </li>
+              
             <% end %>
 
-          </div>
-          <div class="w-full bg-cGreen-100 fixed bottom-0 h-24">
-            <%= form.submit 'Create Category',
-            class: "fixed w-10/12 bottom-4 border-2 border-gray-200 bg-cGreen-100 
-            text-center py-4 mx-8 rounded text-white" %>
-          </div>
+          </ul>
       </div>
-      <% end %>
+      <%= render partial: "shared/submit_button", locals: { form: form, button_text: "Create Category" } %>
+    <% end %>
+
+    <div data-loader-target="loader">
+      <%= render partial: "shared/loader_spinner", locals: { css_class: "text-5xl w-22 h-22"} %>
+    </div>
   
 </section>  
