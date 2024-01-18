@@ -1,25 +1,26 @@
-<section class="flex-col items-center w-full bg-gray-100 min-h-screen">  
-  <%= link_to '◀️ ', group_path(@group),
+<section class="flex-col items-center w-full bg-gray-100 min-h-screen" data-controller="loader">  
+  <%= link_to "◀️ ", group_path(@group),
   class: "fixed text-white top-12 left-2 text-xl z-10"%>
   <h1 class="py-6 bg-cBlue-100 min-w-full text-white text-center text-2xl font-bold fixed "> 
     New Transaction 
   </h1>
 
-  <%= form_with model: @paid_up, url: group_paid_ups_path(@group), html: { class: 'py-20' },
+  <%= form_with model: @paid_up, url: group_paid_ups_path(@group), html: { class: "py-20 hidden", data: { loader_target: "form" } },
     method: :post do |form| %>
+
     <div class="md:w-10/12 mx-auto">
       <div class="field pt-4">    
         <%= form.text_field :name, required: true,
-        placeholder: 'Description', 'aria-label': 'Name',
-        class: 'w-full border-gray-200 rounded', maxlength: 20 %>
+        placeholder: "Description", "aria-label": "Name",
+        class: "w-full border-gray-200 rounded", maxlength: 20 %>
       </div>
 
       <p class="italic py-2 text-xs font-gray-200">(Max. 20 characters)</p>
 
       <div>
         <%= form.number_field :amount, required: true,
-        placeholder: 'Amount', 'aria-label': 'amount',
-        class: 'w-full border-gray-200 py-4 rounded', step: '0.01' %>
+        placeholder: "Amount", "aria-label": "amount",
+        class: "w-full border-gray-200 py-4 rounded", step: "0.01" %>
 
       </div>
 
@@ -36,7 +37,12 @@
       </ul>
     </div>
 
-    <%= render partial: 'shared/submit_button', locals: { form: form, button_text: 'Add Transaction' } %>
+    <%= render partial: "shared/submit_button", locals: { form: form, button_text: "Add Transaction" } %>
 
-  <% end %>  
+  <% end %>
+
+  <div data-loader-target="loader">
+    <%= render partial: "shared/loader_spinner", locals: { css_class: "text-7xl w-28 h-28"} %>
+  </div>
+
 </section>
