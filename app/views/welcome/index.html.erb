@@ -1,9 +1,6 @@
 <% unless user_signed_in? %>
   <section class="min-h-screen flex flex-col justify-center relative md:w-[50%] mx-auto text-center">
-    <div class="loader absolute left-[36%] md:left-[42%] 2xl:left-[45%] top-1/4 text-7xl w-28 h-28 rounded-[50%] font-bold
-      text-[#daa520] bg-[#ffd700] leading-[100px] border-double border-4 shadow-md">
-      $
-    </div>
+    <%= render partial: 'shared/loader_spinner' %>
     <div class="text-center">
       <h1 class="text-4xl md:text-6xl xl:text-8xl text-gray-600 font-serif">Paid ups</h1>
     </div>
